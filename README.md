@@ -11,4 +11,4 @@ Simple Lexer/Scanner for Java programming language.
     java Lexer
   ```
 
-* "sources.txt" contains the source code to be scanned.  
+* "source.txt" contains the source code to be scanned.  
