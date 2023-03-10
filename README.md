@@ -16,7 +16,7 @@ Simple Lexer/Scanner for Java programming language.
 
 ## Sample
 
-#### Input
+### Input
 
 ```java
 // Binary Search in Java
@@ -56,7 +56,7 @@ class BinarySearch {
 }
 ```
 
-#### Output
+### Output
 
 ```java
 Lexemes                                               Tokens
