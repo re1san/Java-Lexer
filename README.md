@@ -19,30 +19,39 @@ Simple Lexer/Scanner for Java programming language.
 #### Input
 
 ```java
-// Linear Search in Java
+// Binary Search in Java
 
 import java.util.*;
 
-public class LinearSearch {
-    public static int linearSearch(int[] arr, int key) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == key) {
-                return i;
+class BinarySearch {
+    public static void binarySearch(int arr[], int first, int last, int key) {
+        int mid = (first + last) / 2;
+        while (first <= last) {
+            if (arr[mid] < key) {
+                first = mid + 1;
+            } else if (arr[mid] == key) {
+                System.out.println("Element is found at index: " + mid);
+                break;
+            } else {
+                last = mid - 1;
             }
+            mid = (first + last) / 2;
         }
-        return -1;
+        if (first > last) {
+            System.out.println("Element is not found!");
+        }
     }
-    public static void main(String a[]) {
-        int[] a1 = {
+    public static void main(String args[]) {
+        int arr[] = {
             10,
             20,
             30,
-            50,
-            70,
-            90
+            40,
+            50
         };
-        int key = 50;
-        System.out.println(key + " is found at index: " + linearSearch(a1, key));
+        int key = 30;
+        int last = arr.length - 1;
+        binarySearch(arr, 0, last, key);
     }
 }
 ```
@@ -51,7 +60,7 @@ public class LinearSearch {
 
 ```java
 Lexemes                                               Tokens
-// Linear Search in Java                             SINGLE_LINE_COMMENT
+// Binary Search in Java                             SINGLE_LINE_COMMENT
 import                                                KEYWORD (import)
 java                                                  IDENTIFIER
 .                                                     FULL_STOP
@@ -59,60 +68,126 @@ util                                                  IDENTIFIER
 .                                                     FULL_STOP
 *                                                     ARITHEMATIC_MULT
 ;                                                     SEMICOLON
-public                                                KEYWORD (public)
 class                                                 KEYWORD (class)
-LinearSearch                                          IDENTIFIER
+BinarySearch                                          IDENTIFIER
 {                                                     LEFT_BRACES
 public                                                KEYWORD (public)
 static                                                KEYWORD (static)
-int                                                   KEYWORD (int)
-linearSearch                                          IDENTIFIER
+void                                                  KEYWORD (void)
+binarySearch                                          IDENTIFIER
 (                                                     LEFT_PAREN
 int                                                   KEYWORD (int)
+arr                                                   IDENTIFIER
 [                                                     LEFT_BRACKET
 ]                                                     RIGHT_BRACKET
-arr                                                   IDENTIFIER
+,                                                     COMMA
+int                                                   KEYWORD (int)
+first                                                 IDENTIFIER
+,                                                     COMMA
+int                                                   KEYWORD (int)
+last                                                  IDENTIFIER
 ,                                                     COMMA
 int                                                   KEYWORD (int)
 key                                                   IDENTIFIER
 )                                                     RIGHT_PAREN
 {                                                     LEFT_BRACES
-for                                                   KEYWORD (for)
-(                                                     LEFT_PAREN
 int                                                   KEYWORD (int)
-i                                                     IDENTIFIER
+mid                                                   IDENTIFIER
 =                                                     ASSIGNMENT_OP
-0                                                     INT_LITERAL
+(                                                     LEFT_PAREN
+first                                                 IDENTIFIER
++                                                     ARITHEMATIC_PLUS
+last                                                  IDENTIFIER
+)                                                     RIGHT_PAREN
+/                                                     ARITHEMATIC_DIVISION
+2                                                     INT_LITERAL
 ;                                                     SEMICOLON
-i                                                     IDENTIFIER
-<                                                     RELATIONAL_LT
-arr                                                   IDENTIFIER
-.                                                     FULL_STOP
-length                                                IDENTIFIER
-;                                                     SEMICOLON
-i                                                     IDENTIFIER
-++                                                    INC_OP
+while                                                 KEYWORD (while)
+(                                                     LEFT_PAREN
+first                                                 IDENTIFIER
+<=                                                    RELATIONAL_LE
+last                                                  IDENTIFIER
 )                                                     RIGHT_PAREN
 {                                                     LEFT_BRACES
 if                                                    KEYWORD (if)
 (                                                     LEFT_PAREN
 arr                                                   IDENTIFIER
 [                                                     LEFT_BRACKET
-i                                                     IDENTIFIER
+mid                                                   IDENTIFIER
+]                                                     RIGHT_BRACKET
+<                                                     RELATIONAL_LT
+key                                                   IDENTIFIER
+)                                                     RIGHT_PAREN
+{                                                     LEFT_BRACES
+first                                                 IDENTIFIER
+=                                                     ASSIGNMENT_OP
+mid                                                   IDENTIFIER
++                                                     ARITHEMATIC_PLUS
+1                                                     INT_LITERAL
+;                                                     SEMICOLON
+}                                                     RIGHT_BRACES
+else                                                  KEYWORD (else)
+if                                                    KEYWORD (if)
+(                                                     LEFT_PAREN
+arr                                                   IDENTIFIER
+[                                                     LEFT_BRACKET
+mid                                                   IDENTIFIER
 ]                                                     RIGHT_BRACKET
 ==                                                    RELATIONAL_EQUAL
 key                                                   IDENTIFIER
 )                                                     RIGHT_PAREN
 {                                                     LEFT_BRACES
-return                                                KEYWORD (return)
-i                                                     IDENTIFIER
+System                                                IDENTIFIER
+.                                                     FULL_STOP
+out                                                   IDENTIFIER
+.                                                     FULL_STOP
+println                                               IDENTIFIER
+(                                                     LEFT_PAREN
+"Element is found at index: "                         STRING_LITERAL
++                                                     ARITHEMATIC_PLUS
+mid                                                   IDENTIFIER
+)                                                     RIGHT_PAREN
+;                                                     SEMICOLON
+break                                                 KEYWORD (break)
 ;                                                     SEMICOLON
 }                                                     RIGHT_BRACES
-}                                                     RIGHT_BRACES
-return                                                KEYWORD (return)
+else                                                  KEYWORD (else)
+{                                                     LEFT_BRACES
+last                                                  IDENTIFIER
+=                                                     ASSIGNMENT_OP
+mid                                                   IDENTIFIER
 -                                                     ARITHEMATIC_MINUS
 1                                                     INT_LITERAL
 ;                                                     SEMICOLON
+}                                                     RIGHT_BRACES
+mid                                                   IDENTIFIER
+=                                                     ASSIGNMENT_OP
+(                                                     LEFT_PAREN
+first                                                 IDENTIFIER
++                                                     ARITHEMATIC_PLUS
+last                                                  IDENTIFIER
+)                                                     RIGHT_PAREN
+/                                                     ARITHEMATIC_DIVISION
+2                                                     INT_LITERAL
+;                                                     SEMICOLON
+}                                                     RIGHT_BRACES
+if                                                    KEYWORD (if)
+(                                                     LEFT_PAREN
+first                                                 IDENTIFIER
+>                                                     RELATIONAL_GT
+last                                                  IDENTIFIER
+)                                                     RIGHT_PAREN
+{                                                     LEFT_BRACES
+System                                                IDENTIFIER
+.                                                     FULL_STOP
+out                                                   IDENTIFIER
+.                                                     FULL_STOP
+println                                               IDENTIFIER
+(                                                     LEFT_PAREN
+"Element is not found!"                               STRING_LITERAL
+)                                                     RIGHT_PAREN
+;                                                     SEMICOLON
+}                                                     RIGHT_BRACES
 }                                                     RIGHT_BRACES
 public                                                KEYWORD (public)
 static                                                KEYWORD (static)
@@ -120,15 +195,15 @@ void                                                  KEYWORD (void)
 main                                                  IDENTIFIER
 (                                                     LEFT_PAREN
 String                                                IDENTIFIER
-a                                                     IDENTIFIER
+args                                                  IDENTIFIER
 [                                                     LEFT_BRACKET
 ]                                                     RIGHT_BRACKET
 )                                                     RIGHT_PAREN
 {                                                     LEFT_BRACES
 int                                                   KEYWORD (int)
+arr                                                   IDENTIFIER
 [                                                     LEFT_BRACKET
 ]                                                     RIGHT_BRACKET
-a1                                                    IDENTIFIER
 =                                                     ASSIGNMENT_OP
 {                                                     LEFT_BRACES
 10                                                    INT_LITERAL
@@ -137,34 +212,34 @@ a1                                                    IDENTIFIER
 ,                                                     COMMA
 30                                                    INT_LITERAL
 ,                                                     COMMA
+40                                                    INT_LITERAL
+,                                                     COMMA
 50                                                    INT_LITERAL
-,                                                     COMMA
-70                                                    INT_LITERAL
-,                                                     COMMA
-90                                                    INT_LITERAL
 }                                                     RIGHT_BRACES
 ;                                                     SEMICOLON
 int                                                   KEYWORD (int)
 key                                                   IDENTIFIER
 =                                                     ASSIGNMENT_OP
-50                                                    INT_LITERAL
+30                                                    INT_LITERAL
 ;                                                     SEMICOLON
-System                                                IDENTIFIER
+int                                                   KEYWORD (int)
+last                                                  IDENTIFIER
+=                                                     ASSIGNMENT_OP
+arr                                                   IDENTIFIER
 .                                                     FULL_STOP
-out                                                   IDENTIFIER
-.                                                     FULL_STOP
-println                                               IDENTIFIER
+length                                                IDENTIFIER
+-                                                     ARITHEMATIC_MINUS
+1                                                     INT_LITERAL
+;                                                     SEMICOLON
+binarySearch                                          IDENTIFIER
 (                                                     LEFT_PAREN
-key                                                   IDENTIFIER
-+                                                     ARITHEMATIC_PLUS
-" is found at index: "                                STRING_LITERAL
-+                                                     ARITHEMATIC_PLUS
-linearSearch                                          IDENTIFIER
-(                                                     LEFT_PAREN
-a1                                                    IDENTIFIER
+arr                                                   IDENTIFIER
+,                                                     COMMA
+0                                                     INT_LITERAL
+,                                                     COMMA
+last                                                  IDENTIFIER
 ,                                                     COMMA
 key                                                   IDENTIFIER
-)                                                     RIGHT_PAREN
 )                                                     RIGHT_PAREN
 ;                                                     SEMICOLON
 }                                                     RIGHT_BRACES
