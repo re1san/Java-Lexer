@@ -20,6 +20,9 @@ Simple Lexer/Scanner for Java programming language.
 
 ```java
 // Linear Search in Java
+
+import java.util.*;
+
 public class LinearSearch {
     public static int linearSearch(int[] arr, int key) {
         for (int i = 0; i < arr.length; i++) {
@@ -47,7 +50,15 @@ public class LinearSearch {
 #### Output
 
 ```java
+Lexemes                                               Tokens
 // Linear Search in Java                             SINGLE_LINE_COMMENT
+import                                                KEYWORD (import)
+java                                                  IDENTIFIER
+.                                                     FULL_STOP
+util                                                  IDENTIFIER
+.                                                     FULL_STOP
+*                                                     ARITHEMATIC_MULT
+;                                                     SEMICOLON
 public                                                KEYWORD (public)
 class                                                 KEYWORD (class)
 LinearSearch                                          IDENTIFIER
